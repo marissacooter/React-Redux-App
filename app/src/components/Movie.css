@@ -1,0 +1,20 @@
+* {
+    background-color:#EE82EE;
+    color: aqua;
+    font-weight: bold;
+}
+
+div {
+    border: 4px solid aquamarine;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

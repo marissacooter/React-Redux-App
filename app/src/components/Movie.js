@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
+import './Movie.css';
 
 const Movie = (props) => {
     return (
-        <div>
-            <p>{props.movie.title}</p>
-            <p>{props.movie.description}</p>
-            <p>{props.movie.director}</p>
+        <div class='body'>
+            <div class='movies'>
+                <p>Movie: {props.movie.title}</p>
+                <p>Description: {props.movie.description}</p>
+                <p>Director: {props.movie.director}</p>
+            </div>
         </div>
     )
 }
