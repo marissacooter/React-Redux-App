@@ -1,15 +1,22 @@
 import React, {useEffect} from 'react';
-import {fetchMovie} from '../actions/MovieActions';
+import {fetchMovies} from '../actions/MovieActions';
 import Movie from './Movie'
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
-const MovieList = props => {
+const MovieList = () => {
+    const dispatch = useDispatch()
     const movies = useSelector(state => state.movies)
-    // useEffect(() => {
-    //     props.fetchMovie();
-    // }, []);
+    const isFetching = useSelector(state => state.isFetching)
+    const error = useSelector(state => state.error)
+    useEffect(() => {
+        dispatch(fetchMovies());
+    }, [fetchMovies]);
     return (
-    <div>{movies.map( movie => <Movie movie={movie}/>)}</div>
+    <div>
+        {isFetching && <p>Getting movies...</p>}
+        {movies && movies.map( movie => <Movie movie={movie}/>)}
+        {error && <p>Error loading({error})</p>}
+    </div>
     )
 }
 export default MovieList;
